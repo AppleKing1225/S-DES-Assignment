@@ -1,0 +1,1772 @@
+{
+  "recorded_at": "2026-10-05T16:08:48.839666+08:00",
+  "python": "3.12.14",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "status": "PASS",
+  "scope": "Core regression; not manual GUI or cross-group testing.",
+  "basic": [
+    {
+      "plaintext": "10101010",
+      "key": "1010000010",
+      "ciphertext": "00001001",
+      "recovered": "10101010",
+      "passed": true
+    },
+    {
+      "plaintext": "11010111",
+      "key": "1010000010",
+      "ciphertext": "11101000",
+      "recovered": "11010111",
+      "passed": true
+    },
+    {
+      "plaintext": "00000000",
+      "key": "0000000000",
+      "ciphertext": "11110000",
+      "recovered": "00000000",
+      "passed": true
+    },
+    {
+      "plaintext": "11111111",
+      "key": "1111111111",
+      "ciphertext": "00001111",
+      "recovered": "11111111",
+      "passed": true
+    },
+    {
+      "plaintext": "00000000",
+      "key": "1111111111",
+      "ciphertext": "11101011",
+      "recovered": "00000000",
+      "passed": true
+    },
+    {
+      "plaintext": "11111111",
+      "key": "0000000000",
+      "ciphertext": "00010100",
+      "recovered": "11111111",
+      "passed": true
+    },
+    {
+      "plaintext": "01010101",
+      "key": "1010000010",
+      "ciphertext": "00000101",
+      "recovered": "01010101",
+      "passed": true
+    }
+  ],
+  "trace": {
+    "input": "10101010",
+    "key_schedule": {
+      "original_key": "1010000010",
+      "p10": "1000001100",
+      "p10_left": "10000",
+      "p10_right": "01100",
+      "left_shift_1": "0000111000",
+      "left_shift_2": "0001010001",
+      "k1": "10100100",
+      "k2": "10010010"
+    },
+    "ip": "00110011",
+    "round1_key": "K1",
+    "round1": {
+      "input": "00110011",
+      "left": "0011",
+      "right": "0011",
+      "f": {
+        "right_half": "0011",
+        "subkey": "10100100",
+        "ep": "10010110",
+        "ep_xor_key": "00110010",
+        "sbox1_input": "0011",
+        "sbox1_output": "10",
+        "sbox2_input": "0010",
+        "sbox2_output": "01",
+        "sbox_combined": "1001",
+        "sp": "0101"
+      },
+      "left_xor_f": "0110",
+      "output": "01100011"
+    },
+    "sw": "00110110",
+    "round2_key": "K2",
+    "round2": {
+      "input": "00110110",
+      "left": "0011",
+      "right": "0110",
+      "f": {
+        "right_half": "0110",
+        "subkey": "10010010",
+        "ep": "00111100",
+        "ep_xor_key": "10101110",
+        "sbox1_input": "1010",
+        "sbox1_output": "10",
+        "sbox2_input": "1110",
+        "sbox2_output": "10",
+        "sbox_combined": "1010",
+        "sp": "0011"
+      },
+      "left_xor_f": "0000",
+      "output": "00000110"
+    },
+    "ip_inv": "00001001"
+  },
+  "text_hex": "E4 5C 89 89 AB C2 CB 9B 30 CB AD",
+  "input_errors": [
+    {
+      "case": "short_and_nonbinary",
+      "message": "Plaintext must contain exactly 8 bits.",
+      "passed": true
+    },
+    {
+      "case": "nonbinary_8bit",
+      "message": "Plaintext must contain only 0 and 1.",
+      "passed": true
+    },
+    {
+      "case": "short_block",
+      "message": "Plaintext must contain exactly 8 bits.",
+      "passed": true
+    },
+    {
+      "case": "long_block",
+      "message": "Plaintext must contain exactly 8 bits.",
+      "passed": true
+    },
+    {
+      "case": "short_key",
+      "message": "Key must contain exactly 10 bits.",
+      "passed": true
+    },
+    {
+      "case": "long_key",
+      "message": "Key must contain exactly 10 bits.",
+      "passed": true
+    },
+    {
+      "case": "empty_block",
+      "message": "Plaintext must contain exactly 8 bits.",
+      "passed": true
+    },
+    {
+      "case": "non_ascii",
+      "message": "Text mode follows the assignment's ASCII requirement; use ASCII characters only.",
+      "passed": true
+    },
+    {
+      "case": "bad_hex",
+      "message": "Hex ciphertext may contain only hexadecimal digits and whitespace.",
+      "passed": true
+    },
+    {
+      "case": "odd_hex",
+      "message": "Hex ciphertext must contain an even number of hexadecimal digits.",
+      "passed": true
+    },
+    {
+      "case": "empty_encrypt_bad_key",
+      "message": "Key must contain exactly 10 bits.",
+      "passed": true
+    },
+    {
+      "case": "empty_decrypt_bad_key",
+      "message": "Key must contain exactly 10 bits.",
+      "passed": true
+    },
+    {
+      "case": "empty_text_encrypt_bad_key",
+      "message": "Key must contain exactly 10 bits.",
+      "passed": true
+    },
+    {
+      "case": "empty_text_decrypt_bad_key",
+      "message": "Key must contain exactly 10 bits.",
+      "passed": true
+    },
+    {
+      "case": "empty_pairs",
+      "message": "At least one known plaintext/ciphertext pair is required.",
+      "passed": true
+    }
+  ],
+  "ascii_codepoints": 128,
+  "byte_values": 256,
+  "empty_input_key_validation": "PASS",
+  "single_pair": {
+    "candidate_keys": [
+      "0001110011",
+      "0101110011",
+      "1010000010",
+      "1110000010"
+    ],
+    "tested_keys": 1024,
+    "elapsed_seconds": 0.025027700000464392,
+    "started_at": "2026-10-05T16:08:42.351+08:00",
+    "finished_at": "2026-10-05T16:08:42.376+08:00"
+  },
+  "two_pairs": {
+    "candidate_keys": [
+      "1010000010",
+      "1110000010"
+    ],
+    "tested_keys": 1024,
+    "elapsed_seconds": 0.024308000000019092,
+    "started_at": "2026-10-05T16:08:42.377+08:00",
+    "finished_at": "2026-10-05T16:08:42.401+08:00"
+  },
+  "single_plaintext": {
+    "plaintext": "10101010",
+    "distinct_ciphertexts": 254,
+    "collision_ciphertexts": 254,
+    "max_keys_for_one_ciphertext": 8
+  },
+  "full_space": {
+    "total_plaintexts": 256,
+    "total_encryptions": 262144,
+    "plaintexts_with_collisions": 256,
+    "min_distinct_ciphertexts": 254,
+    "max_distinct_ciphertexts": 254,
+    "average_distinct_ciphertexts": 254.0,
+    "global_max_keys_for_one_ciphertext": 8,
+    "elapsed_seconds": 6.3769056000001,
+    "per_plaintext": [
+      {
+        "plaintext": "00000000",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00000001",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00000010",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00000011",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00000100",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00000101",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00000110",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00000111",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00001000",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00001001",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00001010",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00001011",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00001100",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00001101",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00001110",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00001111",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00010000",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00010001",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00010010",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00010011",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00010100",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00010101",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00010110",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00010111",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00011000",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00011001",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00011010",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00011011",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00011100",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00011101",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00011110",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00011111",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00100000",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00100001",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00100010",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00100011",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00100100",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00100101",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00100110",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00100111",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00101000",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00101001",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00101010",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00101011",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00101100",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00101101",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00101110",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00101111",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00110000",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00110001",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00110010",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00110011",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00110100",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00110101",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00110110",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00110111",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00111000",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00111001",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00111010",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00111011",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00111100",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00111101",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00111110",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "00111111",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01000000",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01000001",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01000010",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01000011",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01000100",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01000101",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01000110",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01000111",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01001000",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01001001",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01001010",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01001011",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01001100",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01001101",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01001110",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01001111",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01010000",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01010001",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01010010",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01010011",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01010100",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01010101",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01010110",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01010111",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01011000",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01011001",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01011010",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01011011",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01011100",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01011101",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01011110",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01011111",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01100000",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01100001",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01100010",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01100011",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01100100",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01100101",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01100110",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01100111",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01101000",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01101001",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01101010",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01101011",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01101100",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01101101",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01101110",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01101111",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01110000",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01110001",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01110010",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01110011",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01110100",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01110101",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01110110",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01110111",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01111000",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01111001",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01111010",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01111011",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01111100",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01111101",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01111110",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "01111111",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10000000",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10000001",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10000010",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10000011",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10000100",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10000101",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10000110",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10000111",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10001000",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10001001",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10001010",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10001011",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10001100",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10001101",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10001110",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10001111",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10010000",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10010001",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10010010",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10010011",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10010100",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10010101",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10010110",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10010111",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10011000",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10011001",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10011010",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10011011",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10011100",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10011101",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10011110",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10011111",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10100000",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10100001",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10100010",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10100011",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10100100",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10100101",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10100110",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10100111",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10101000",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10101001",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10101010",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10101011",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10101100",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10101101",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10101110",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10101111",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10110000",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10110001",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10110010",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10110011",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10110100",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10110101",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10110110",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10110111",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10111000",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10111001",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10111010",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10111011",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10111100",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10111101",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10111110",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "10111111",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11000000",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11000001",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11000010",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11000011",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11000100",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11000101",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11000110",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11000111",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11001000",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11001001",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11001010",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11001011",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11001100",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11001101",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11001110",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11001111",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11010000",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11010001",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11010010",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11010011",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11010100",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11010101",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11010110",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11010111",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11011000",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11011001",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11011010",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11011011",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11011100",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11011101",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11011110",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11011111",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11100000",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11100001",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11100010",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11100011",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11100100",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11100101",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11100110",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11100111",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11101000",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11101001",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11101010",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11101011",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11101100",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11101101",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11101110",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11101111",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11110000",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11110001",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11110010",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11110011",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11110100",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11110101",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11110110",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11110111",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11111000",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11111001",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11111010",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11111011",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11111100",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11111101",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11111110",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      },
+      {
+        "plaintext": "11111111",
+        "distinct_ciphertexts": 254,
+        "collision_ciphertexts": 254,
+        "max_keys_for_one_ciphertext": 8
+      }
+    ]
+  },
+  "equivalent_keys_confirmed_for_all_256_plaintexts": true
+}

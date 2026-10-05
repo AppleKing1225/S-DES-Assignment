@@ -1,0 +1,124 @@
+{
+  "recorded_at": "2026-10-05T16:08:54.131414+08:00",
+  "python": "3.12.14",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "status": "PASS",
+  "scope": "Offscreen Qt widgets and signals; not manual or cross-group testing.",
+  "PyQt6": "6.11.0",
+  "Qt": "6.11.2",
+  "checks": [
+    {
+      "case": "basic_encrypt",
+      "passed": true
+    },
+    {
+      "case": "basic_decrypt",
+      "passed": true
+    },
+    {
+      "case": "nine_bit_input_preserved",
+      "passed": true
+    },
+    {
+      "case": "nine_bit_input_rejected",
+      "passed": true
+    },
+    {
+      "case": "basic_error_clears_output_and_trace",
+      "passed": true
+    },
+    {
+      "case": "eleven_bit_key_rejected",
+      "passed": true
+    },
+    {
+      "case": "nonbinary_input_rejected",
+      "passed": true
+    },
+    {
+      "case": "text_encrypt",
+      "passed": true
+    },
+    {
+      "case": "text_decrypt",
+      "passed": true
+    },
+    {
+      "case": "bad_hex_rejected",
+      "passed": true
+    },
+    {
+      "case": "decrypt_error_clears_results_keeps_input",
+      "passed": true
+    },
+    {
+      "case": "non_ascii_rejected",
+      "passed": true
+    },
+    {
+      "case": "encrypt_error_clears_results",
+      "passed": true
+    },
+    {
+      "case": "empty_text_bad_key_rejected",
+      "passed": true
+    },
+    {
+      "case": "empty_hex_bad_key_rejected",
+      "passed": true
+    },
+    {
+      "case": "text_long_key_rejected",
+      "passed": true
+    },
+    {
+      "case": "empty_text_valid_key",
+      "passed": true
+    },
+    {
+      "case": "single_pair_worker",
+      "passed": true
+    },
+    {
+      "case": "two_pair_worker",
+      "passed": true
+    },
+    {
+      "case": "empty_pairs_rejected",
+      "passed": true
+    },
+    {
+      "case": "empty_pairs_clear_previous_result",
+      "passed": true
+    },
+    {
+      "case": "worker_error_clears_search_text",
+      "passed": true
+    },
+    {
+      "case": "single_analysis_worker",
+      "passed": true
+    },
+    {
+      "case": "analysis_long_input_rejected_and_cleared",
+      "passed": true
+    },
+    {
+      "case": "all_analysis_worker",
+      "passed": true
+    }
+  ],
+  "warning_messages": [
+    "Plaintext must contain exactly 8 bits.",
+    "Key must contain exactly 10 bits.",
+    "Plaintext must contain only 0 and 1.",
+    "Hex ciphertext may contain only hexadecimal digits and whitespace.",
+    "Text mode follows the assignment's ASCII requirement; use ASCII characters only.",
+    "Key must contain exactly 10 bits.",
+    "Key must contain exactly 10 bits.",
+    "Key must contain exactly 10 bits.",
+    "Enter at least one plaintext/ciphertext pair.",
+    "Plaintext #1 must contain exactly 8 bits.",
+    "Plaintext must contain exactly 8 bits."
+  ]
+}

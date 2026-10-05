@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "scope": "Local package, document layout, local links and regression tests; online submission not verified",
+  "visually_reviewed_pages": 25,
+  "checked_local_links": 20,
+  "broken_local_links": 0,
+  "core_regression": "PASS: verification/core_results.json",
+  "gui_regression": "PASS: 25 offscreen Qt widget checks; verification/runs/gui_presubmit_20261005.json",
+  "cross_testing": "PASS for three paired A/B encryption cases supported by six supplied screenshots. No cross-decryption claim.",
+  "teacher_consent": "User confirmed three members and within-group independent implementations.",
+  "program_b_source": "Excluded from submission at user request; test report and screenshots retained.",
+  "online_submission": "NOT_VERIFIED: repository address is present in the submission overview; repository contents and Shimo registration not verified",
+  "requirements_source": "Previously reviewed teacher document; live page could not be reread during this audit",
+  "media_integrity": "All existing screenshots and video unchanged",
+  "format_acceptance": {
+    "font": "宋体",
+    "original_sizes_preserved": true,
+    "headings_bold": 55,
+    "text_and_images_preserved": true,
+    "visually_reviewed_pages": 25
+  },
+  "regression_evidence": "Existing PASS records retained; source and all other non-document files hash-matched before metadata update.",
+  "pdf_documents": 8,
+  "document_format": "PDF",
+  "pdf_local_link_annotations": 22,
+  "repository_url_in_document": "https://github.com/AppleKing1225/S-DES-Assignment",
+  "pdf_conversion": "PASS: 23 pages pixel-identical to the previously reviewed layout; both updated overview pages visually reviewed. Original font sizes, bold headings, screenshots and test data retained."
+}
